@@ -1,24 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SimpleBottomNavigation from './HomeComponents/SimpleBottomNavigation';
+import { Routes , Route } from 'react-router-dom';
+import OwedComp from './Owe/HomeOwe';
+import BankCalcHome from './BankCalc/BankCalcHome';
+import Analytics from './Analytics/Analytics';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route exact path="/" element={<OwedComp/>}/>
+        <Route exact path="/bank-calc" element={<BankCalcHome/>}/>
+        <Route exact path="/analytics" element={<Analytics/>}/>
+      </Routes>
+
+      <SimpleBottomNavigation/>
     </div>
   );
 }
